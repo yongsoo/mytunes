@@ -4,23 +4,19 @@ window.MyTunes.Collections = window.MyTunes.Collections || {};
 
 MyTunes.Collections.SongQueue = MyTunes.Collections.Songs.extend({
 
-  initialize: function(){
-    this.queue = [];
+  initialize: function(initializedSong){
+    arguments.length === 0 ? this.queue = [] : this.queue = this.add(initializedSong);
+
     this.on('add', function(songData) {
       this.queue.push(songData);
+      if (this.queue.length === 1) {
+        this.playFirst();
+      }
     });
   },
 
   playFirst: function(){
-    // console.log('playFirst this is', this);
-    // console.log('playFirst - this.length is', this.length);
-
-    if (this.length > 0) {
-      // this should add song to the queue, and not play immediately
-      // for MONDAY, see if 'add' actually adds to the collection and see what data type/object is being added
-    } else {
-      this.at(0).play();
-    }
+    this.at(0).play();
   }
 
 });
