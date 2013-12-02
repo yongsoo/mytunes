@@ -4,7 +4,7 @@ window.MyTunes.Collections = window.MyTunes.Collections || {};
 
 MyTunes.Collections.SongQueue = MyTunes.Collections.Songs.extend({
 
-  initialize: function(initializedSong){
+  initialize: function(initializedSong) {
     arguments.length === 0 ? this.queue = [] : this.queue = this.add(initializedSong);
 
     this.on('add', function(songData) {
@@ -16,11 +16,17 @@ MyTunes.Collections.SongQueue = MyTunes.Collections.Songs.extend({
 
     this.on('ended', function() {
       this.queue.shift();
+      this.playFirst();
     });
   },
 
-  playFirst: function(){
+  playFirst: function() {
     this.at(0).play();
   }
+
+  // ended: function() {
+  //   this.queue.shift();
+  //   this.playFirst();
+  // }
 
 });
