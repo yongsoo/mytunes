@@ -9,14 +9,12 @@ MyTunes.Collections.SongQueue = MyTunes.Collections.Songs.extend({
 
     this.on('add', function(songData) {
       this.queue.push(songData);
-      if (this.queue.length === 1) {
-        this.playFirst();
-      }
+      if (this.queue.length === 1) { this.playFirst(); }
     });
 
     this.on('ended', function() {
       this.queue.shift();
-      this.playFirst();
+      if (this.queue.length > 0) { this.playFirst(); }
     });
   },
 
