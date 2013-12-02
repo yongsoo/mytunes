@@ -10,13 +10,8 @@ MyTunes.Models.SongModel = Backbone.Model.extend({
   },
 
   ended: function() {
-    this.get(queue).shift();
-    this.playFirst();
+    this.trigger('ended', this);
   }
 
 });
 
-// Does the method "ended" belong in the SongModel or SongQueue (collection)?
-// If it belongs in the SongModel, how do we access the queue, and can we use shift / what's an alternative?
-// If it belongs in the SongQueue, how do we make it an available method to songs in the queue?
-// Why do the specs call .trigger('ended') on line 45, but then call .ended() on line 53 (of SongQueueSpec.js). Don't these do the same thing?
