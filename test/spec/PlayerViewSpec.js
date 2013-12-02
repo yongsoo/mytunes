@@ -9,7 +9,7 @@ describe('PlayerView', function() {
         url: "mp3s/08 4 Page Letter.mp3",
         title: "4 Page Letter",
         artist: "Aaliyah"
-      },
+      },  
       {
         url: "mp3s/11 We Need A Resolution.mp3",
         title: "We Need A Resolution",
