@@ -17,6 +17,11 @@ MyTunes.Models.AppModel = Backbone.Model.extend({
     params.library.on('play', function(song){
       this.set('currentSong', song);
     }, this);
+
+    params.library.on('enqueue', function(song){
+      console.log("a songs 'enqueue' event was triggered");
+    }, this);
+
   }
 
 });
