@@ -14,6 +14,8 @@ MyTunes.Views.SongQueueEntryView = Backbone.View.extend({
     }
   },
 
+  //************** Need to have click listener append to queue view and render on each click
+
   render: function(){
     return this.$el.html(this.template(this.model.attributes));
   }
