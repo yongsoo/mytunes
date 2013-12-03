@@ -10,7 +10,8 @@ MyTunes.Views.LibraryEntryView = Backbone.View.extend({
 
   events: {
     'click': function() {
-      this.model.play();
+      // this.model.play();
+      this.model.enqueue(); // enqueue will automatically trigger model.play if no songs in queue already
     }
   },
 
