@@ -13,12 +13,13 @@ MyTunes.Collections.SongQueue = MyTunes.Collections.Songs.extend({
     });
 
     this.on('ended', function() {
-      this.queue.shift();
+      this.queue.remove(MyTunes.Collections.SongQueue.at(0));
       if (this.queue.length > 0) { this.playFirst(); }
     });
 
     this.on('dequeue', function() {
       this.queue.shift();
+      // this.render(); // add a render function here to re-render song queue
     });
   },
 

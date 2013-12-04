@@ -9,6 +9,10 @@ MyTunes.Views.PlayerView = Backbone.View.extend({
   el: '<audio controls autoplay />',
 
   initialize: function() {
+    var that = this;
+    this.$el.on('ended', function() {
+      that.model.ended();
+    });
   },
 
   setSong: function(song){
