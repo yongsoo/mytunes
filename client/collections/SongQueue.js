@@ -12,8 +12,8 @@ MyTunes.Collections.SongQueue = MyTunes.Collections.Songs.extend({
       if (this.queue.length === 1) { this.playFirst(); }
     });
 
-    this.on('ended', function() {
-      this.queue.remove(MyTunes.Collections.SongQueue.at(0));
+    this.on('ended', function(song) {
+      this.remove(song);
       if (this.queue.length > 0) { this.playFirst(); }
     });
 

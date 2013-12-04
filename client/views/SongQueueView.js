@@ -17,6 +17,10 @@ MyTunes.Views.SongQueueView = Backbone.View.extend({
     this.collection.on('dequeue', function() {
       that.render();
     });
+
+    this.collection.on('ended', function() {
+      that.render();
+    });
   },
 
   render: function() {
