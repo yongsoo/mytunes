@@ -10,8 +10,6 @@ MyTunes.Models.SongModel = Backbone.Model.extend({
   },
 
   ended: function() {
-    console.log(this);
-    this.playCount++;
     this.trigger('ended', this);
   },
 
@@ -23,7 +21,12 @@ MyTunes.Models.SongModel = Backbone.Model.extend({
     this.trigger('enqueue', this);
   },
 
-  playCount: 0
+  playCountAddOne: function() {
+    var oldPlayCount = this.get('playCount');
+    var newPlayCount = oldPlayCount + 1;
+
+    this.set('playCount', newPlayCount);
+  }
 
 });
 

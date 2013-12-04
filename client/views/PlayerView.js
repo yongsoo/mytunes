@@ -12,6 +12,7 @@ MyTunes.Views.PlayerView = Backbone.View.extend({
     var that = this;
     this.$el.on('ended', function() {
       that.model.ended();
+      that.model.playCountAddOne();
     });
   },
 
