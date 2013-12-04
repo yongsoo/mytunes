@@ -17,9 +17,8 @@ MyTunes.Collections.SongQueue = MyTunes.Collections.Songs.extend({
       if (this.queue.length > 0) { this.playFirst(); }
     });
 
-    this.on('dequeue', function() {
-      this.queue.shift();
-      // this.render(); // add a render function here to re-render song queue
+    this.on('dequeue', function(song) {
+      this.remove(song);
     });
   },
 
