@@ -8,6 +8,11 @@ MyTunes.Views.LibraryView = Backbone.View.extend({
 
   initialize: function() {
     this.render();
+
+    var that = this;
+    this.collection.on('ended', function() {
+      that.render();
+    });
   },
 
   render: function(){
